@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>e0b020d3-13bf-424b-94b8-a9591f98e0e2</ProjectGuid>
+    <ProjectGuid>63f3a787-c61f-4ae5-be3c-8dfc00d2517d</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>catalogapi</DockerServiceName>
