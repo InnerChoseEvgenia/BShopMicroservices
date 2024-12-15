@@ -1,17 +1,18 @@
 ﻿namespace CatalogAPI.Products.GetProducts
 {
-    //public record GetProductsRequest();
+    //pagination using Marten
+    public record GetProductsRequest(int? PageNumber = 1, int? PageSize = 10);
     public record GetProductsResponse(IEnumerable<Product> Products);
 
     public class GetProductsEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/products", async (ISender sender) =>
+            app.MapGet("/products", async ([AsParameters] GetProductsRequest request, ISender sender) =>
             {
-                var result = await sender.Send(new GetProductsQuery());
+                var query = request.Adapt<GetProductsQuery>();
 
-                var response = result.Adapt<GetProductsResponse>();
+                var response = await sender.Send(query);
 
                 return Results.Ok(response);
             })
